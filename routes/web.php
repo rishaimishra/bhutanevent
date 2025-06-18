@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\TributeController;
 use App\Http\Controllers\Admin\TimelineEntryController;
+use App\Http\Controllers\Admin\AudioClipController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -64,6 +65,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 
     // Timeline Routes
     Route::resource('timeline', TimelineEntryController::class);
+
+    // Audio Clips Routes
+    Route::resource('audio', AudioClipController::class);
 });
 
 Route::middleware(['auth'])->group(function () {
