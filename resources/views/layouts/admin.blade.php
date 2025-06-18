@@ -49,9 +49,21 @@
                     <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
                         <i class="fas fa-tachometer-alt"></i> Dashboard
                     </a>
-                    <a class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
-                        <i class="fas fa-users"></i> Users
-                    </a>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
+                            <i class="fas fa-users"></i> Users
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.live-sessions.*') ? 'active' : '' }}" href="{{ route('admin.live-sessions.index') }}">
+                            <i class="fas fa-video"></i> Live Sessions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.live-questions.*') ? 'active' : '' }}" href="{{ route('admin.live-questions.index') }}">
+                            <i class="fas fa-question-circle"></i> Live Questions
+                        </a>
+                    </li>
                     <a class="nav-link" href="{{ route('home') }}">
                         <i class="fas fa-home"></i> Back to Site
                     </a>

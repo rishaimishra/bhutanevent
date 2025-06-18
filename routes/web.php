@@ -7,6 +7,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\LiveSessionController;
+use App\Http\Controllers\Admin\LiveQuestionController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -29,4 +31,6 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->midd
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('users', UserController::class);
+    Route::resource('live-sessions', LiveSessionController::class);
+    Route::resource('live-questions', LiveQuestionController::class);
 });
