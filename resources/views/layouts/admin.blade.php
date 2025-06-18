@@ -65,8 +65,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('admin.live-polls.*') ? 'active' : '' }}" href="{{ route('admin.live-polls.index') }}">
-                            <i class="fas fa-poll"></i> Live Polls
+                        <a href="{{ route('admin.live-polls.index') }}" class="nav-link {{ request()->routeIs('admin.live-polls.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-poll"></i>
+                            <p>Live Polls</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.feedback.index') }}" class="nav-link {{ request()->routeIs('admin.feedback.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-comment-alt"></i>
+                            <p>Feedback</p>
                         </a>
                     </li>
                     <a class="nav-link" href="{{ route('home') }}">

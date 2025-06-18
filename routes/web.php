@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\LiveSessionController;
 use App\Http\Controllers\Admin\LiveQuestionController;
 use App\Http\Controllers\Admin\LivePollController;
 use App\Http\Controllers\PollController;
+use App\Http\Controllers\Admin\FeedbackController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -37,6 +38,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('live-questions', LiveQuestionController::class);
     Route::resource('live-polls', LivePollController::class);
     Route::get('live-polls/{livePoll}/results', [LivePollController::class, 'results'])->name('live-polls.results');
+    
+    Route::get('feedback', [FeedbackController::class, 'index'])->name('feedback.index');
+    Route::get('feedback/{feedback}', [FeedbackController::class, 'show'])->name('feedback.show');
+    Route::delete('feedback/{feedback}', [FeedbackController::class, 'destroy'])->name('feedback.destroy');
 });
 
 Route::middleware(['auth'])->group(function () {
