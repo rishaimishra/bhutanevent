@@ -64,6 +64,11 @@
                             <i class="fas fa-question-circle"></i> Live Questions
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin.live-polls.*') ? 'active' : '' }}" href="{{ route('admin.live-polls.index') }}">
+                            <i class="fas fa-poll"></i> Live Polls
+                        </a>
+                    </li>
                     <a class="nav-link" href="{{ route('home') }}">
                         <i class="fas fa-home"></i> Back to Site
                     </a>

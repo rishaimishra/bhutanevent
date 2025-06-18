@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\LiveSessionController;
 use App\Http\Controllers\Admin\LiveQuestionController;
+use App\Http\Controllers\Admin\LivePollController;
+use App\Http\Controllers\PollController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -33,4 +35,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('users', UserController::class);
     Route::resource('live-sessions', LiveSessionController::class);
     Route::resource('live-questions', LiveQuestionController::class);
+    Route::resource('live-polls', LivePollController::class);
+    Route::get('live-polls/{livePoll}/results', [LivePollController::class, 'results'])->name('live-polls.results');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/polls/{livePoll}', [PollController::class, 'show'])->name('polls.show');
+    Route::post('/polls/{livePoll}/vote', [PollController::class, 'vote'])->name('polls.vote');
 });
