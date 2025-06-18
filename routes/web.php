@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\LiveQuestionController;
 use App\Http\Controllers\Admin\LivePollController;
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Admin\NotificationController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -42,6 +43,15 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('feedback', [FeedbackController::class, 'index'])->name('feedback.index');
     Route::get('feedback/{feedback}', [FeedbackController::class, 'show'])->name('feedback.show');
     Route::delete('feedback/{feedback}', [FeedbackController::class, 'destroy'])->name('feedback.destroy');
+
+    Route::get('notifications', [NotificationController::class, 'index'])->name('notifications.index');
+    Route::get('notifications/create', [NotificationController::class, 'create'])->name('notifications.create');
+    Route::post('notifications', [NotificationController::class, 'store'])->name('notifications.store');
+    Route::get('notifications/{notification}', [NotificationController::class, 'show'])->name('notifications.show');
+    Route::get('notifications/{notification}/edit', [NotificationController::class, 'edit'])->name('notifications.edit');
+    Route::put('notifications/{notification}', [NotificationController::class, 'update'])->name('notifications.update');
+    Route::delete('notifications/{notification}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
+    Route::post('notifications/{notification}/send-now', [NotificationController::class, 'sendNow'])->name('notifications.send-now');
 });
 
 Route::middleware(['auth'])->group(function () {
