@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\LivePollController;
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\NotificationController;
+use App\Http\Controllers\Admin\TributeController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -52,6 +53,13 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::put('notifications/{notification}', [NotificationController::class, 'update'])->name('notifications.update');
     Route::delete('notifications/{notification}', [NotificationController::class, 'destroy'])->name('notifications.destroy');
     Route::post('notifications/{notification}/send-now', [NotificationController::class, 'sendNow'])->name('notifications.send-now');
+
+    // Tribute routes
+    Route::get('tributes', [TributeController::class, 'index'])->name('tributes.index');
+    Route::get('tributes/{tribute}', [TributeController::class, 'show'])->name('tributes.show');
+    Route::post('tributes/{tribute}/approve', [TributeController::class, 'approve'])->name('tributes.approve');
+    Route::post('tributes/{tribute}/reject', [TributeController::class, 'reject'])->name('tributes.reject');
+    Route::delete('tributes/{tribute}', [TributeController::class, 'destroy'])->name('tributes.destroy');
 });
 
 Route::middleware(['auth'])->group(function () {

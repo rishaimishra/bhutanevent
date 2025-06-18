@@ -82,6 +82,12 @@
                             <p>Notifications</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.tributes.index') }}" class="nav-link {{ request()->routeIs('admin.tributes.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-heart"></i>
+                            <p>Tribute Wall</p>
+                        </a>
+                    </li>
                     <a class="nav-link" href="{{ route('home') }}">
                         <i class="fas fa-home"></i> Back to Site
                     </a>
