@@ -154,6 +154,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('admin.ebooks.index') }}" class="nav-link {{ request()->routeIs('admin.ebooks.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-book"></i>
+                            <p>E-Books</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('admin.quizzes.index') }}" class="nav-link {{ request()->routeIs('admin.quizzes.*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-question-circle"></i>
                             <p>Quizzes</p>

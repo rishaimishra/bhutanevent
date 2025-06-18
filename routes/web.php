@@ -17,6 +17,8 @@ use App\Http\Controllers\Admin\TributeController;
 use App\Http\Controllers\Admin\TimelineEntryController;
 use App\Http\Controllers\Admin\AudioClipController;
 use App\Http\Controllers\Admin\QuizController;
+use App\Http\Controllers\Admin\EBookController;
+use App\Http\Controllers\EBookController as UserEBookController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -72,9 +74,16 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 
     // Quiz routes
     Route::resource('quizzes', QuizController::class);
+
+    // EBook routes
+    Route::resource('ebooks', EBookController::class);
 });
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/polls/{livePoll}', [PollController::class, 'show'])->name('polls.show');
     Route::post('/polls/{livePoll}/vote', [PollController::class, 'vote'])->name('polls.vote');
 });
+
+// User-facing e-book routes
+Route::get('/ebooks', [UserEBookController::class, 'index'])->name('ebooks.index');
+Route::get('/ebooks/{ebook}/download', [UserEBookController::class, 'download'])->name('ebooks.download');
