@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\TributeController;
 use App\Http\Controllers\Admin\TimelineEntryController;
 use App\Http\Controllers\Admin\AudioClipController;
+use App\Http\Controllers\Admin\QuizController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -68,6 +69,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
 
     // Audio Clips Routes
     Route::resource('audio', AudioClipController::class);
+
+    // Quiz routes
+    Route::resource('quizzes', QuizController::class);
 });
 
 Route::middleware(['auth'])->group(function () {

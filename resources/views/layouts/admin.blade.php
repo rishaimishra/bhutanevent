@@ -153,6 +153,12 @@
                             <p>Royal Audio Series</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.quizzes.index') }}" class="nav-link {{ request()->routeIs('admin.quizzes.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Quizzes</p>
+                        </a>
+                    </li>
                     <a class="nav-link" href="{{ route('home') }}">
                         <i class="fas fa-home"></i> Back to Site
                     </a>
@@ -220,5 +226,6 @@
             });
         });
     </script>
+    @stack('scripts')
 </body>
 </html> 
