@@ -88,6 +88,12 @@
                             <p>Tribute Wall</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.timeline.index') }}" class="nav-link {{ request()->routeIs('admin.timeline.*') ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-history"></i>
+                            <p>Timeline</p>
+                        </a>
+                    </li>
                     <a class="nav-link" href="{{ route('home') }}">
                         <i class="fas fa-home"></i> Back to Site
                     </a>

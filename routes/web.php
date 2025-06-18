@@ -14,6 +14,7 @@ use App\Http\Controllers\PollController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\TributeController;
+use App\Http\Controllers\Admin\TimelineEntryController;
 use Illuminate\Support\Facades\Route;
 
 // Public routes
@@ -60,6 +61,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::post('tributes/{tribute}/approve', [TributeController::class, 'approve'])->name('tributes.approve');
     Route::post('tributes/{tribute}/reject', [TributeController::class, 'reject'])->name('tributes.reject');
     Route::delete('tributes/{tribute}', [TributeController::class, 'destroy'])->name('tributes.destroy');
+
+    // Timeline Routes
+    Route::resource('timeline', TimelineEntryController::class);
 });
 
 Route::middleware(['auth'])->group(function () {
